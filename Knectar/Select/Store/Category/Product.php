@@ -5,10 +5,10 @@
  * 
  * Exports the following fields:
  * <ul>
- * <li><code>store_id</code></li>
- * <li><code>category_id</code></li>
- * <li><code>parent_id</code>: ID of each category's parent category, if it exists.</li>
- * <li><code>product_id</code></li>
+ * <li>store_id</li>
+ * <li>category_id</li>
+ * <li>parent_id: ID of each category's parent category, if it exists.</li>
+ * <li>product_id</li>
  * </ul>
  * 
  * @author daniel@clockworkgeek.com

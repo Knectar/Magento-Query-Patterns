@@ -6,12 +6,12 @@
  * 
  * Exports the following fields:
  * <ul>
- * <li><code>store_id</code></li>
- * <li><code>category_id</code></li>
- * <li><code>parent_id</code></li>
- * <li><code>category_name</code></li>
- * <li><code>parent_category_name</code></li>
- * <li><code>grandparent_category_name</code><li>
+ * <li>store_id</li>
+ * <li>category_id</li>
+ * <li>parent_id</li>
+ * <li>category_name</li>
+ * <li>parent_category_name</li>
+ * <li>grandparent_category_name<li>
  * </ul>
  * 
  * @author daniel@clockworkgeek.com

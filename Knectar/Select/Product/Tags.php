@@ -5,8 +5,8 @@
  * 
  * Exports the following fields:
  * <ul>
- * <li><code>product_id</code></li>
- * <li><code>product_tags</code>: Comma-separated tag values.</li>
+ * <li>product_id</li>
+ * <li>product_tags: Comma-separated tag values.</li>
  * </ul>
  * 
  * @author daniel@clockworkgeek.com

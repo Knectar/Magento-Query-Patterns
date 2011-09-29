@@ -5,7 +5,7 @@
  * 
  * Exports the following fields:
  * <ul>
- * <li><code>product_id</code></li>
+ * <li>product_id</li>
  * </ul
  * 
  * @author daniel@clockworkgeek.com
