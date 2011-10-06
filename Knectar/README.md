@@ -29,7 +29,11 @@ You might find the following classes useful. Each exports several columns such a
 
 - **Knectar_Select_Product_Tags**
 - - product_id
-- - product_tags _Comma-delimited tag names._
+- - product_tags *Comma-delimited tag names.*
+
+- **Knectar_Select_Product_Rating**
+- - product_id
+- - rating_summary *Individual percent value*
 
 ###Store Specific Queries 
 
@@ -37,7 +41,7 @@ You might find the following classes useful. Each exports several columns such a
 Handy for finding stores that categories belong to.
 - - store_id
 - - category_id
-- - parent_id _ID of one category that owns category_id. If there are several parents only first is exported. NULL if no parent._
+- - parent_id *ID of one category that owns category_id. If there are several parents only first is exported. NULL if no parent.*
 
 - **Knectar_Select_Store_Category_Name**  
 Same as Knectar_Select_Store_Category but also exports a name.
