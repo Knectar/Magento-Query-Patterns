@@ -9,6 +9,7 @@
  * <li>store_id</li>
  * <li>category_id</li>
  * <li>parent_id</li>
+ * <li>grandparent_id</li>
  * <li>product_id</li>
  * <li>product_name</li>
  * <li>category_name</li>

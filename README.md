@@ -21,9 +21,83 @@ In this example the subquery is placed in an array so a table alias (`tags`) can
 The table alias and exported column (`tags.product_id`) is used in a join clause with the known entity table and primary key (`e.entity_id`).
 The remaining exported columns (`product_tags`) are listed and will be in the final resultset.
 
-##API Documentation
+##API
 
-To save yourself reading each file you can generate some documentation by PhpDoc.
+You might find the following classes useful. Each exports several columns such as "product_id" and "product_tags".
 
-First, install PhpDoc with the command `pear install PhpDocumentor` then run it from this directory with `phpdoc -c phpdoc.ini`.
-A "docs" folder will be created with everything needed inside.
+###Product Related Queries
+
+- **Knectar_Select_Product_Tags**
+- - product_id
+- - product_tags _Comma-delimited tag names._
+
+###Store Specific Queries 
+
+- **Knectar_Select_Store_Category**  
+Handy for finding stores that categories belong to.
+- - store_id
+- - category_id
+- - parent_id _ID of one category that owns category_id. If there are several parents only first is exported. NULL if no parent._
+
+- **Knectar_Select_Store_Category_Name**  
+Same as Knectar_Select_Store_Category but also exports a name.
+- - store_id
+- - category_id
+- - parent_id
+- - category_name
+
+- **Knectar_Select_Store_Category_Duoname**  
+Same as Knectar_Select_Store_Category_Name but exports the parent's name too.
+- - store_id
+- - category_id
+- - parent_id
+- - category_name
+- - parent_category_name
+
+- **Knectar_Select_Store_Category_Trioname**  
+Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and name.
+- - store_id
+- - category_id
+- - parent_id
+- - grandparent_id
+- - category_name
+- - parent_category_name
+- - grandparent_category_name
+
+- **Knectar_Select_Store_Category_Product**  
+Lists all products per store. Similar to Knectar_Select_Store_Category but not all categories are certain to be included.
+- - store_id
+- - category_id
+- - parent_id
+- - product_id
+
+- **Knectar_Select_Store_Category_Product_Name**  
+Like Knectar_Select_Store_Category_Product with names exported.
+- - store_id
+- - category_id
+- - parent_id
+- - product_id
+- - product_name
+- - category_name
+
+- **Knectar_Select_Store_Category_Product_Duoname**  
+Same as Knectar_Select_Store_Category_Product_Name but exports parent category's name too.
+- - store_id
+- - category_id
+- - parent_id
+- - product_id
+- - product_name
+- - category_name
+- - parent_category_name
+
+- **Knectar_Select_Store_Category_Product_Trioname**  
+Same as Knectar_Select_Store_Category_Product_Duoname but exports grand-parent category's ID and name.
+- - store_id
+- - category_id
+- - parent_id
+- - grandparent_id
+- - product_id
+- - product_name
+- - category_name
+- - parent_category_name
+- - grandparent_category_name
