@@ -1,4 +1,4 @@
-Knectar_Select is a library of sub-query classes for everyday use in Magento queries.
+Magento Query Patterns is a library of sub-query classes for everyday use in Magento queries.
 
 ##Installation
 
