@@ -27,31 +27,31 @@ You might find the following classes useful. Each exports several columns such a
 
 ###Product Related Queries
 
-- **Knectar_Select_Product_Tags**
+- **Knectar_Select_Product_Tags**  
 - - product_id
 - - product_tags *Comma-delimited tag names.*
 
-- **Knectar_Select_Product_Rating**
+- **Knectar_Select_Product_Rating**  
 - - product_id
 - - rating_summary *Individual percent value*
 
 ###Store Specific Queries 
 
 - **Knectar_Select_Store_Category**  
-Handy for finding stores that categories belong to.
+Handy for finding stores that categories belong to.  
 - - store_id
 - - category_id
 - - parent_id *ID of one category that owns category_id. If there are several parents only first is exported. NULL if no parent.*
 
 - **Knectar_Select_Store_Category_Name**  
-Same as Knectar_Select_Store_Category but also exports a name.
+Same as Knectar_Select_Store_Category but also exports a name.  
 - - store_id
 - - category_id
 - - parent_id
 - - category_name
 
 - **Knectar_Select_Store_Category_Duoname**  
-Same as Knectar_Select_Store_Category_Name but exports the parent's name too.
+Same as Knectar_Select_Store_Category_Name but exports the parent's name too.  
 - - store_id
 - - category_id
 - - parent_id
@@ -59,7 +59,7 @@ Same as Knectar_Select_Store_Category_Name but exports the parent's name too.
 - - parent_category_name
 
 - **Knectar_Select_Store_Category_Trioname**  
-Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and name.
+Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and name.  
 - - store_id
 - - category_id
 - - parent_id
@@ -69,14 +69,14 @@ Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and 
 - - grandparent_category_name
 
 - **Knectar_Select_Store_Category_Product**  
-Lists all products per store. Similar to Knectar_Select_Store_Category but not all categories are certain to be included.
+Lists all products per store. Similar to Knectar_Select_Store_Category but not all categories are certain to be included.  
 - - store_id
 - - category_id
 - - parent_id
 - - product_id
 
 - **Knectar_Select_Store_Category_Product_Name**  
-Like Knectar_Select_Store_Category_Product with names exported.
+Like Knectar_Select_Store_Category_Product with names exported.  
 - - store_id
 - - category_id
 - - parent_id
@@ -85,7 +85,7 @@ Like Knectar_Select_Store_Category_Product with names exported.
 - - category_name
 
 - **Knectar_Select_Store_Category_Product_Duoname**  
-Same as Knectar_Select_Store_Category_Product_Name but exports parent category's name too.
+Same as Knectar_Select_Store_Category_Product_Name but exports parent category's name too.  
 - - store_id
 - - category_id
 - - parent_id
@@ -95,7 +95,7 @@ Same as Knectar_Select_Store_Category_Product_Name but exports parent category's
 - - parent_category_name
 
 - **Knectar_Select_Store_Category_Product_Trioname**  
-Same as Knectar_Select_Store_Category_Product_Duoname but exports grand-parent category's ID and name.
+Same as Knectar_Select_Store_Category_Product_Duoname but exports grand-parent category's ID and name.  
 - - store_id
 - - category_id
 - - parent_id
