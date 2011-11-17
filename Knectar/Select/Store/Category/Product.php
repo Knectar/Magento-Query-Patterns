@@ -28,5 +28,24 @@ class Knectar_Select_Store_Category_Product extends Knectar_Select_Entity
 		$this->group('store_id')->group('product_id');
 	}
 
+	/**
+	 * Adds the column 'category_id' to {$select}
+	 *
+	 * @param Varien_Db_Select $select
+	 * @param string $tableName
+	 * @param string $condition
+	 * @param array $columns
+	 * @param string $type
+	 */
+	public static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN)
+	{
+		$select->_join(
+			$type,
+			array($tableName => new self()),
+			$condition,
+			$columns ? $columns : 'category_id'
+		);
+	}
+
 }
 

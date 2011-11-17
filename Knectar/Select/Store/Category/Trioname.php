@@ -32,5 +32,24 @@ class Knectar_Select_Store_Category_Trioname extends Knectar_Select_Store_Catego
 		));
 	}
 
+	/**
+	 * Adds the columns 'category_name', 'parent_category_name' and 'grandparent_category_name' to {$select}
+	 *
+	 * @param Varien_Db_Select $select
+	 * @param string $tableName
+	 * @param string $condition
+	 * @param array $columns
+	 * @param string $type
+	 */
+	public static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN)
+	{
+		$select->_join(
+			$type,
+			array($tableName => new self()),
+			$condition,
+			$columns ? $columns : array('category_name', 'parent_category_name', 'grandparent_category_name')
+		);
+	}
+
 }
 

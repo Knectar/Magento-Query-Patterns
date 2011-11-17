@@ -27,5 +27,24 @@ class Knectar_Select_Product_Tags extends Knectar_Select_Product
 		));
 	}
 
+	/**
+	 * Adds the column 'product_tags' to {$select}
+	 *
+	 * @param Varien_Db_Select $select
+	 * @param string $tableName
+	 * @param string $condition
+	 * @param array $columns
+	 * @param string $type
+	 */
+	public static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN)
+	{
+		$select->_join(
+			$type,
+			array($tableName => new self()),
+			$condition,
+			$columns ? $columns : 'product_tags'
+		);
+	}
+
 }
 

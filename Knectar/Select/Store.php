@@ -12,7 +12,7 @@
  * @copyright Copyright (c), 2011 Knectar Design
  */
 
-class Knectar_Select_Store extends Knectar_Select_Entity
+abstract class Knectar_Select_Store extends Knectar_Select_Entity
 {
 
 	public function __construct()

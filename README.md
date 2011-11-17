@@ -3,23 +3,26 @@ Magento Query Patterns is a library of sub-query classes for everyday use in Mag
 ##Installation
 
 Copy `Knectar` to the `lib/` folder of your Magento folder. 
-Be careful to preserve the folder arrangement so that Magento's autoloader can find them accurately.
+Be careful to preserve the folder arrangement so that Magento's autoloader can work accurately.
 
 ##Usage
 
-For a collection simply join a select instance to the existing select using 
-the usual `join*` functions.
+Query patterns are sub-queries and can be used anywhere Zend select objects can.
+For convenience, the static method `enhance` is best.
 
+    // this example adds a `product_tags` column
     $collection = Mage::getResourceModel('catalog/product_collection');
-    $collection->getSelect()->joinLeft(
-        array('tags' => new Knectar_Select_Product_Tags()),
-        'tags.product_id=e.entity_id',
-        array('product_tags')
-    );
+    Knectar_Select_Product_Tags::enhance($collection->getSelect(), 'tags', 'tags.product_id=e.entity_id');
+    foreach ($collection as $product) {
+        echo $product->getProductTags(), "\n";
+    }
 
-In this example the subquery is placed in an array so a table alias (`tags`) can be specified.
-The table alias and exported column (`tags.product_id`) is used in a join clause with the known entity table and primary key (`e.entity_id`).
-The remaining exported columns (`product_tags`) are listed and will be in the final resultset.
+The parameters of `enhance` are:
+- `$select` Must be an instance of `Varien_Db_Select`.
+- `$tableName` The sub-query will be joined as this table. Must be unique for `$select`.
+- `$condition` The ON clause for a JOIN statement, it will use the table name.
+- `$columns` (Optional) Associative array of column names to add to the field list.
+- `$type` (Optional) One of the `Zend_Db_Select::*_JOIN` constants, the default is `LEFT_JOIN`.
 
 ##API
 
@@ -38,20 +41,20 @@ You might find the following classes useful. Each exports several columns such a
 ###Store Specific Queries 
 
 - **Knectar_Select_Store_Category**  
-Handy for finding stores that categories belong to.  
+  Handy for finding stores that categories belong to.  
 - - store_id *Store's entity ID, not store code.*
 - - category_id
 - - parent_id *ID of one category that owns category_id. If there are several parents only first is exported. NULL if no parent.*
 
 - **Knectar_Select_Store_Category_Name**  
-Same as Knectar_Select_Store_Category but also exports a name.  
+  Same as Knectar_Select_Store_Category but also exports a name.  
 - - store_id
 - - category_id
 - - parent_id
 - - category_name
 
 - **Knectar_Select_Store_Category_Duoname**  
-Same as Knectar_Select_Store_Category_Name but exports the parent's name too.  
+  Same as Knectar_Select_Store_Category_Name but exports the parent's name too.  
 - - store_id
 - - category_id
 - - parent_id
@@ -59,7 +62,7 @@ Same as Knectar_Select_Store_Category_Name but exports the parent's name too.
 - - parent_category_name
 
 - **Knectar_Select_Store_Category_Trioname**  
-Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and name.  
+  Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and name.  
 - - store_id
 - - category_id
 - - parent_id
@@ -69,14 +72,14 @@ Same as Knectar_Select_Store_Category_Duoname but exports grand-parent's ID and 
 - - grandparent_category_name
 
 - **Knectar_Select_Store_Category_Product**  
-Lists all products per store. Similar to Knectar_Select_Store_Category but not all categories are certain to be included.  
+  Lists all products per store. Similar to Knectar_Select_Store_Category but not all categories are certain to be included.  
 - - store_id
 - - category_id
 - - parent_id
 - - product_id
 
 - **Knectar_Select_Store_Category_Product_Name**  
-Like Knectar_Select_Store_Category_Product with names exported.  
+  Like Knectar_Select_Store_Category_Product with names exported.  
 - - store_id
 - - category_id
 - - parent_id
@@ -85,7 +88,7 @@ Like Knectar_Select_Store_Category_Product with names exported.
 - - category_name
 
 - **Knectar_Select_Store_Category_Product_Duoname**  
-Same as Knectar_Select_Store_Category_Product_Name but exports parent category's name too.  
+  Same as Knectar_Select_Store_Category_Product_Name but exports parent category's name too.  
 - - store_id
 - - category_id
 - - parent_id
@@ -95,7 +98,7 @@ Same as Knectar_Select_Store_Category_Product_Name but exports parent category's
 - - parent_category_name
 
 - **Knectar_Select_Store_Category_Product_Trioname**  
-Same as Knectar_Select_Store_Category_Product_Duoname but exports grand-parent category's ID and name.  
+  Same as Knectar_Select_Store_Category_Product_Duoname but exports grand-parent category's ID and name.  
 - - store_id
 - - category_id
 - - parent_id

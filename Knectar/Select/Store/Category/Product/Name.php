@@ -28,5 +28,24 @@ class Knectar_Select_Store_Category_Product_Name extends Knectar_Select_Store_Ca
 		$this->joinAttribute('catname', 'catalog_category', 'name', 'catprod.category_id', 0, 'category_name', self::LEFT_JOIN);
 	}
 
+	/**
+	 * Adds the columns 'product_name' and 'category_name' to {$select}
+	 *
+	 * @param Varien_Db_Select $select
+	 * @param string $tableName
+	 * @param string $condition
+	 * @param array $columns
+	 * @param string $type
+	 */
+	public static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN)
+	{
+		$select->_join(
+			$type,
+			array($tableName => new self()),
+			$condition,
+			$columns ? $columns : array('product_name', 'category_name')
+		);
+	}
+
 }
 

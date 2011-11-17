@@ -7,7 +7,7 @@
  * @copyright Copyright (c), 2011 Knectar Design
  */
 
-class Knectar_Select_Entity extends Varien_Db_Select
+abstract class Knectar_Select_Entity extends Varien_Db_Select
 {
 
 	/**
@@ -71,6 +71,27 @@ class Knectar_Select_Entity extends Varien_Db_Select
 		if (isset($fieldAlias)) $fieldAlias = array($fieldAlias=>'value');
 		return $this->_join($join, array($tableAlias=>$attributeTable), $cond, $fieldAlias, $schema);
 	}
+
+	/**
+	 * A factory method that links a new sub-query with a collection's select object.
+	 * 
+	 * Implementations are expected to look like this:
+	 * <code>
+	 * $select->_join(
+	 *     $type,
+	 *     array($tableName => new self()),
+	 *     $condition,
+	 *     $columns ? $columns : 'default_column'
+	 * );
+	 * </code>
+	 * 
+	 * @param Varien_Db_Select $select Owning query object, usually retrieved by <code>$collection->getSelect()</code>
+	 * @param string $tableName Requested name of sub-query, must not yet exist in {$select}.
+	 * @param string $condition On clause of join statement
+	 * @param array $columns Names of desired sub-query columns, or associative array to map them to new names, or NULL for all defaults.
+	 * @param string $type See {Zend_Db_Select::*_JOIN}
+	 */
+	public abstract static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN);
 
 }
 
