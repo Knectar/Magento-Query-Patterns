@@ -17,7 +17,7 @@ For convenience, the static method `enhance` is best.
         echo $product->getProductTags(), "\n";
     }
 
-The parameters of `enhance` are:
+The parameters of `enhance` are:  
 - `$select` Must be an instance of `Varien_Db_Select`.
 - `$tableName` The sub-query will be joined as this table. Must be unique for `$select`.
 - `$condition` The ON clause for a JOIN statement, it will use the table name.
