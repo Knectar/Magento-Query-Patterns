@@ -10,12 +10,15 @@ Be careful to preserve the folder arrangement so that Magento's autoloader can w
 Query patterns are sub-queries and can be used anywhere Zend select objects can.
 For convenience, the static method `enhance` is best.
 
-    // this example adds a `product_tags` column
-    $collection = Mage::getResourceModel('catalog/product_collection');
-    Knectar_Select_Product_Tags::enhance($collection->getSelect(), 'tags', 'tags.product_id=e.entity_id');
-    foreach ($collection as $product) {
-        echo $product->getProductTags(), "\n";
-    }
+```php
+// this example adds a `product_tags` column
+$collection = Mage::getResourceModel('catalog/product_collection');
+Knectar_Select_Product_Tags::enhance($collection->getSelect(), 'tags', 'tags.product_id=e.entity_id');
+
+foreach ($collection as $product) {
+    echo $product->getProductTags(), "\n";
+}
+```
 
 The parameters of `enhance` are:
 
