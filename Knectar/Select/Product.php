@@ -6,7 +6,7 @@
  * Exports the following fields:
  * <ul>
  * <li>product_id</li>
- * </ul
+ * </ul>
  * 
  * @author daniel@clockworkgeek.com
  * @copyright Copyright (c), 2011 Knectar Design
