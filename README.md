@@ -2,7 +2,9 @@ Magento Query Patterns is a library of sub-query classes for everyday use in Mag
 
 ##Installation
 
-Copy `Knectar` to the `lib/` folder of your Magento folder. 
+[Download the latest edition](https://github.com/Knectar/Magento-Query-Patterns/downloads)
+and extract it to Magento's base folder.
+The folder `/lib/Knectar` will be created.
 Be careful to preserve the folder arrangement so that Magento's autoloader can work accurately.
 
 ##Usage
