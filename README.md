@@ -28,4 +28,14 @@ The parameters of `enhance` are:
 - `$columns` (Optional) Associative array of column names to add to the field list.
 - `$type` (Optional) One of the [`Zend_Db_Select::*_JOIN`](http://framework.zend.com/manual/en/zend.db.select.html#zend.db.select.building.join) constants, the default is `LEFT_JOIN`.
 
-Some classes provide more specific convenience functions, see [the wiki](https://github.com/Knectar/Magento-Query-Patterns/wiki) for references.
+Some classes provide more specific convenience functions, see
+[the wiki](https://github.com/Knectar/Magento-Query-Patterns/wiki) for references.
+
+##Distribution
+
+This library is shared under the MIT license, meaning you are free to use it
+for any purpose and free to include it in your extensions. Because other
+extension authors might like to use the same library please do not modify any
+source files directly, instead fork this project and submit your modifications
+that way. Alternatively, to avoid confusion, extend the classes with your own in
+a namespace other than `Knectar_`.
