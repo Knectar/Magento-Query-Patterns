@@ -129,13 +129,18 @@ abstract class Knectar_Select_Entity extends Varien_Db_Select
 	 * );
 	 * </code>
 	 * 
+	 * @abstract
 	 * @param Varien_Db_Select $select Owning query object, usually retrieved by <code>$collection->getSelect()</code>
 	 * @param string $tableName Requested name of sub-query, must not yet exist in {$select}.
 	 * @param string $condition On clause of join statement
 	 * @param array $columns Names of desired sub-query columns, or associative array to map them to new names, or NULL for all defaults.
 	 * @param string $type See {Zend_Db_Select::*_JOIN}
 	 */
-	public abstract static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN);
+	public static function enhance(Varien_Db_Select $select, $tableName, $condition, $columns = null, $type = self::LEFT_JOIN)
+	{
+		// Descendents MUST override this method
+		die;
+	}
 
 }
 
