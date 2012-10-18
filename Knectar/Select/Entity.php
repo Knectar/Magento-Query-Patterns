@@ -42,30 +42,7 @@ abstract class Knectar_Select_Entity extends Varien_Db_Select
 		if (is_null($adapter)) {
 			$adapter = $this->_resource->getConnection('core_read');
 		}
-		Zend_Db_Select::$_partsInit = array_merge(
-			array_slice(self::$_partsInit, 0, 1),
-			array(self::CACHE => true),
-			array_slice(self::$_partsInit, 1)
-		);
 		parent::__construct($adapter);
-	}
-
-	const CACHE = 'sqlcache';
-	const SQL_CACHE = 'SQL_CACHE';
-
-	/**
-	 * Render SQL_CACHE clause
-	 * 
-	 * @param string $sql
-	 * @return string
-	 */
-    protected function _renderSqlcache($sql)
-	{
-		if ($this->_parts[self::CACHE]) {
-			$sql .= ' ' . self::SQL_CACHE;
-		}
-
-		return $sql;
 	}
 
     public function getTable($modelEntity)
